@@ -175,11 +175,19 @@ module EFax
     attr_reader :message
     attr_reader :classification
     attr_reader :outcome
+    attr_reader :duration
+    attr_reader :pages
+    attr_reader :retries
+    attr_reader :scheduled
 
     def initialize(response) #:nodoc:
       if response.is_a? Net::HTTPOK
         doc = Hpricot(response.body)
         @message = doc.at(:message).innerText
+        @pages = doc.at(:sent).innerText
+        @duration = doc.at(:duration).innerText
+        @retries = doc.at(:retries).innerText
+        @scheduled = doc.at(:scheduled).innerText
         @classification = doc.at(:classification).innerText.delete('"')
         @outcome = doc.at(:outcome).innerText.delete('"')
         if !sent_yet?(classification, outcome) || busy_signal?(classification)
