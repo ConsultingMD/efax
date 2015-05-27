@@ -186,7 +186,7 @@ module EFax
         @message = doc.at(:message).innerText
         @pages = doc.at(:sent).innerText
         @duration = doc.at(:duration).innerText
-        @retries = doc.at(:retries).innerText
+        @retries = doc.at(:retries).innerText.to_i
         @scheduled = doc.at(:scheduled).innerText
         @classification = doc.at(:classification).innerText.delete('"')
         @outcome = doc.at(:outcome).innerText.delete('"')
