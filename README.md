@@ -1,3 +1,5 @@
+This is a fork of [szimek/efax](https://github.com/szimek/efax)
+
 # efax [![Build Status](https://secure.travis-ci.org/szimek/efax.png)](http://travis-ci.org/szimek/efax)
 
 Ruby library for accessing [eFax Developer service](http://www.efaxdeveloper.com).
